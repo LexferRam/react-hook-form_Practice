@@ -14,6 +14,8 @@ export default function App() {
     <input type="text" placeholder="Prueba de placeholder" {...register("text", {required:true})} /> 
     <input type="text" palceholder="New Feature" {...register("text", {required:true})} />
 
+    <input type="text" placeholder="New feature2" {...register("text", {required:true})} />
+
 
       <input type="text" placeholder="Last name" {...register("Last name", {required: true, maxLength: 100})} />
       <input type="text" placeholder="Email" {...register("Email", {required: true, pattern: /^\S+@\S+$/i})} />
