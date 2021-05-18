@@ -10,6 +10,10 @@ export default function App() {
     <form onSubmit={handleSubmit(onSubmit)}>
       {errors.username && <p>{errors.username.message}</p>}
       <input type="text" placeholder="First name" {...register("First name", {required: true, maxLength: 80})} />
+
+    <input type="text" placeholder="Prueba de placeholder" {...register("text", {required:true})} /> 
+
+
       <input type="text" placeholder="Last name" {...register("Last name", {required: true, maxLength: 100})} />
       <input type="text" placeholder="Email" {...register("Email", {required: true, pattern: /^\S+@\S+$/i})} />
       <input type="tel" placeholder="Mobile number" {...register("Mobile number", {required: true, minLength: 6, maxLength: 12})} />
