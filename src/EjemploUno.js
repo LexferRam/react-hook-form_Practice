@@ -40,23 +40,22 @@ export const EjemploUno = () => {
   return (
     <div style={{width:'100%', display:'flex', justifyContent: 'center'}}>
         <form onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
-        <div style={{display:'flex', flexDirection:'column',}}>
-        <h3>Formulario</h3>
+         <div style={{display:'flex', flexDirection:'column',}}>
+          <h3>Formulario</h3>
 
-        <Input label="First Name" name="firstName" register={register} required error={errors.firstName} errMessage="FirstName is reqired"/>
-        {/* {errors.firstName && <span style={{color:'red'}} >The field is required</span>} */}
+            <Input label="First Name" name="firstName" register={register} required error={errors.firstName} errMessage="FirstName is reqired"/>
 
-        <Input label="Last Name" name="lastName" register={register} required error={errors.lastName} errMessage="LastName is reqired"/>
+            <Input label="Last Name" name="lastName" register={register} required error={errors.lastName} errMessage="LastName is reqired"/>
 
-        <Input label="Country" name="Country" register={register} required error={errors.Country} errMessage="FirstName is reqired"/>
-       
-        <Input multiline  label="Address" name="address" register={register} required error={errors.address} errMessage="Address is reqired"/>
+            <Input label="Country" name="Country" register={register} required error={errors.Country} errMessage="FirstName is reqired"/>
         
-        <Select label="Age" {...register("Age")}/>
+            <Input multiline  label="Address" name="address" register={register} required error={errors.address} errMessage="Address is reqired"/>
+            
+            <Select label="Age" {...register("Age")}/>
 
-        <input type="submit" />
+            <input type="submit" />
 
-        </div>
+          </div>
         </form>
     </div>  
   );
