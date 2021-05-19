@@ -1,5 +1,5 @@
 import React from "react";
-// import Select from "react-select";
+import Select from "react-select";
 import { useForm, Controller } from "react-hook-form";
 import Input from "@material-ui/core/Input";
 
@@ -7,7 +7,7 @@ export const EjemploMui = () => {
     const { control, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
     return (
-        <div>
+        <div style={{width:400, display:'flex', justifyContent: 'center'}}>
               <form onSubmit={handleSubmit(onSubmit)}>
       <Controller
         name="firstName"
@@ -15,7 +15,7 @@ export const EjemploMui = () => {
         defaultValue=""
         render={({ field }) => <Input {...field} />}
       />
-      {/* <Controller
+      <Controller
         name="iceCreamType"
         control={control}
         render={({ field }) => <Select 
@@ -26,7 +26,7 @@ export const EjemploMui = () => {
             { value: "vanilla", label: "Vanilla" }
           ]} 
         />}
-      /> */}
+      />
       <input type="submit" />
     </form>
         </div>

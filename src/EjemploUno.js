@@ -1,11 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import TextField from '@material-ui/core/TextField';
+import { MenuItem } from "@material-ui/core";
 
-const Input = ({label, name, register, required,error,errMessage }) => (
+const Input = ({label, name, register, required,error,errMessage, multiline }) => (
   <>
     <label>{label}</label>
     <TextField
+     multiline={multiline}
+     rows={3}
      variant="outlined" 
      style={{margin:'10px 0px'}} 
      {...register(name, { required })} 
@@ -15,19 +18,18 @@ const Input = ({label, name, register, required,error,errMessage }) => (
   </>
 );
 
-const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
+const Select = React.forwardRef(({ onChange, name, label }, ref) => (
   <>
     <label>{label}</label>
-    <select  style={{margin:'10px 0px'}} name={name} ref={ref} onChange={onChange} onBlur={onBlur}>
-      <option value="20">20</option>
-      <option value="30">30</option>
-    </select>
+    <TextField select variant="outlined" style={{margin:'10px 0px'}}  name={name} ref={ref} onChange={onChange}>
+      <MenuItem key={20} value="20">20</MenuItem >
+      <MenuItem key={30} value="30">30</MenuItem >
+    </TextField>
   </>
 ));
 
 export const EjemploUno = () => {
   const { register, handleSubmit,  formState:{errors },reset} = useForm();
-
   const onSubmit = (data,e) => {
       e.preventDefault();
       console.log(data);
@@ -47,8 +49,10 @@ export const EjemploUno = () => {
         <Input label="Last Name" name="lastName" register={register} required error={errors.lastName} errMessage="LastName is reqired"/>
 
         <Input label="Country" name="Country" register={register} required error={errors.Country} errMessage="FirstName is reqired"/>
+       
+        <Input multiline  label="Address" name="address" register={register} required error={errors.address} errMessage="Address is reqired"/>
         
-        <Select label="Age" {...register("Age")} />
+        <Select label="Age" {...register("Age")}/>
 
         <input type="submit" />
 
